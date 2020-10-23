@@ -1,0 +1,165 @@
+@font-face {
+    font-family: 'AGBenguiat Cyr';
+    src: local('../fonts/AGBenguiat Cyr Book'), local('AGBenguiatCyrBook'),
+        url('../fonts/AGBenguiatCyrBook.woff2') format('woff2'),
+        url('../fonts/AGBenguiatCyrBook.woff') format('woff'),
+        url('../fonts/AGBenguiatCyrBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'a_BodoniNovaNr';
+    src: local('../fonts/a_BodoniNovaNr Italic'), local('ABodoniNovaNrItalic'),
+        url('../fonts/ABodoniNovaNrItalic.woff2') format('woff2'),
+        url('../fonts/ABodoniNovaNrItalic.woff') format('woff'),
+        url('../fonts/ABodoniNovaNrItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ArialMT';
+    src: local('../fonts/ArialMT'),
+        url('../fonts/ArialMT.woff2') format('woff2'),
+        url('../fonts/ArialMT.woff') format('woff'),
+        url('../fonts/ArialMT.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Colaborate';
+    src: local('../fonts/Colaborate-Regular'),
+        url('../fonts/Colaborate-Regular.woff2') format('woff2'),
+        url('../fonts/Colaborate-Regular.woff') format('woff'),
+        url('../fonts/Colaborate-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A1010Helvetika TYGRA';
+    src: local('../fonts/A1010Helvetika Normal'), local('A1010Helvetika-Normal'),
+        url('../fonts/A1010Helvetika-Normal.woff2') format('woff2'),
+        url('../fonts/A1010Helvetika-Normal.woff') format('woff'),
+        url('../fonts/A1010Helvetika-Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Colaborate';
+    src: local('../fonts/Colaborate-Thin'),
+        url('../fonts/Colaborate-Thin.woff2') format('woff2'),
+        url('../fonts/Colaborate-Thin.woff') format('woff'),
+        url('../fonts/Colaborate-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Colaborate';
+    src: local('../fonts/Colaborate-Medium'),
+        url('../fonts/Colaborate-Medium.woff2') format('woff2'),
+        url('../fonts/Colaborate-Medium.woff') format('woff'),
+        url('../fonts/Colaborate-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'a_BighausTitulBrk';
+    src: local('../fonts/a_BighausTitulBrk ExtraBold'), local('a_BighausTitulBrk-ExtraBold'),
+        url('../fonts/a_BighausTitulBrk-ExtraBold.woff2') format('woff2'),
+        url('../fonts/a_BighausTitulBrk-ExtraBold.woff') format('woff'),
+        url('../fonts/a_BighausTitulBrk-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'a_CooperBlackNr';
+    src: local('../fonts/a_CooperBlackNr'),
+        url('../fonts/a_CooperBlackNr.woff2') format('woff2'),
+        url('../fonts/a_CooperBlackNr.woff') format('woff'),
+        url('../fonts/a_CooperBlackNr.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AG_Souvenir';
+    src: local('../fonts/AG_Souvenir'), local('AGSouvenir'),
+        url('../fonts/AGSouvenir.woff2') format('woff2'),
+        url('../fonts/AGSouvenir.woff') format('woff'),
+        url('../fonts/AGSouvenir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AG Letterica';
+    src: local('../fonts/AG Letterica Bold Bold'), local('AGLettericaBoldBold'),
+        url('../fonts/AGLettericaBoldBold.woff2') format('woff2'),
+        url('../fonts/AGLettericaBoldBold.woff') format('woff'),
+        url('../fonts/AGLettericaBoldBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AG Foreigner-Roman';
+    src: local('../fonts/AG Foreigner Roman Medium'), local('AGForeignerRomanMedium'),
+        url('../fonts/AGForeignerRomanMedium.woff2') format('woff2'),
+        url('../fonts/AGForeignerRomanMedium.woff') format('woff'),
+        url('../fonts/AGForeignerRomanMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AGAalenBold';
+    src: local('../fonts/AGAalenBold Roman'), local('AGAalenBold-Roman'),
+        url('../fonts/AGAalenBold-Roman.woff2') format('woff2'),
+        url('../fonts/AGAalenBold-Roman.woff') format('woff'),
+        url('../fonts/AGAalenBold-Roman.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CrashCTT';
+    src: local('../fonts/CrashCTT'), local('CrashCTT-Regular'),
+        url('../fonts/CrashCTT-Regular.woff2') format('woff2'),
+        url('../fonts/CrashCTT-Regular.woff') format('woff'),
+        url('../fonts/CrashCTT-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Copse';
+    src: local('../fonts/Copse'),
+        url('../fonts/Copse.woff2') format('woff2'),
+        url('../fonts/Copse.woff') format('woff'),
+        url('../fonts/Copse.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
