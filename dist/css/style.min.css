@@ -2938,6 +2938,101 @@ template {
 .promo {
   min-height: 883px;
   background: url(../img/bg_main.png) center center/cover no-repeat; }
+  .promo__cloud {
+    position: relative;
+    top: 230px;
+    min-height: 560px;
+    width: 100%;
+    overflow: hidden; }
+  .promo__cloud-plan-2 {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 9; }
+  .promo__cloud-plan-1 {
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+    top: 66px; }
+  .promo__cloud-bg {
+    width: 100%;
+    height: 200px;
+    background-color: #127ea5;
+    position: absolute;
+    bottom: 0;
+    z-index: 13; }
+  .promo__form-block {
+    position: absolute;
+    z-index: 10;
+    top: 93px;
+    left: 679px;
+    width: 308px;
+    height: 539px;
+    border: 7px solid #7ebee0;
+    background-color: #299fca;
+    border-radius: 22px; }
+  .promo__form-block-line {
+    width: 227px;
+    height: 40px;
+    box-shadow: -3px 1px 5px rgba(18, 126, 165, 0.75);
+    background-color: #dfda06;
+    margin-top: 26px;
+    margin-left: -18px;
+    font-family: "AG Letterica";
+    font-size: 21px;
+    text-align: justify;
+    padding-left: 18px;
+    line-height: 1.95;
+    color: #ffffff; }
+    .promo__form-block-line:before {
+      content: '';
+      position: absolute;
+      right: 85px;
+      border: 20px solid transparent;
+      border-right: 18px solid #299fca; }
+  .promo__wrapper-input {
+    margin-bottom: 13px; }
+  .promo__input-title {
+    display: inline-block;
+    font-family: "AG Foreigner-Roman";
+    font-size: 17px;
+    color: #fff;
+    width: 75px;
+    text-align: right;
+    margin-left: 17px; }
+  .promo .main-form {
+    padding-top: 33px; }
+    .promo .main-form__input {
+      display: inline;
+      width: 158px;
+      height: 31px;
+      border: solid 3px #a7d1e6;
+      border-radius: 9px;
+      margin-left: 11px;
+      margin-right: 33px;
+      font-family: "AG Foreigner-Roman";
+      font-size: 15px;
+      color: #299fca;
+      padding-left: 6px; }
+      .promo .main-form__input:focus {
+        outline: none; }
+    .promo .main-form__select {
+      display: inline;
+      width: 158px;
+      height: 31px;
+      border: solid 3px #a7d1e6;
+      border-radius: 9px;
+      margin-left: 11px;
+      font-family: "AG Foreigner-Roman";
+      font-size: 15px;
+      color: #299fca;
+      padding-left: 6px;
+      padding-right: 32px;
+      appearance: none;
+      background: url("../icons/SelectArrow.png") no-repeat right center;
+      outline: 0;
+      background-color: #fff; }
 
 .header {
   width: 967px;
@@ -2991,3 +3086,6 @@ template {
     letter-spacing: normal;
     transform: rotate(-6deg);
     text-align: center; }
+
+.map {
+  height: 500px; }
