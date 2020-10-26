@@ -2992,7 +2992,12 @@ template {
       border: 20px solid transparent;
       border-right: 18px solid #299fca; }
   .promo__wrapper-input {
-    margin-bottom: 13px; }
+    margin-bottom: 13px;
+    position: relative; }
+    .promo__wrapper-input:nth-child(4) .promo__input-title {
+      width: 77px;
+      position: absolute;
+      top: -5px; }
   .promo__input-title {
     display: inline-block;
     font-family: "AG Foreigner-Roman";
@@ -3033,11 +3038,91 @@ template {
       background: url("../icons/SelectArrow.png") no-repeat right center;
       outline: 0;
       background-color: #fff; }
+    .promo .main-form__textarea {
+      display: inline;
+      width: 158px;
+      border: solid 3px #a7d1e6;
+      border-radius: 9px;
+      margin-left: 104px;
+      font-family: "AG Foreigner-Roman";
+      font-size: 15px;
+      color: #299fca;
+      padding-left: 6px;
+      resize: none; }
+      .promo .main-form__textarea:focus {
+        outline: none; }
+    .promo .main-form__btn {
+      position: absolute;
+      top: 396px;
+      left: 851px;
+      width: 97px;
+      height: 33px;
+      background-image: linear-gradient(to top, #e5db10, #fff203);
+      font-family: "AG Letterica";
+      font-size: 15px;
+      color: #64affc;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      z-index: 15; }
+      .promo .main-form__btn:focus {
+        outline: none; }
+      .promo .main-form__btn:hover {
+        box-shadow: 1px 1px 10px #fff; }
+  .promo__stairs {
+    margin-left: 23px; }
+  .promo__slider {
+    position: absolute;
+    top: 139px;
+    left: 100px;
+    z-index: 100; }
+  .promo__slider-plane {
+    position: absolute;
+    top: 30px;
+    left: -98px; }
+  .promo__slider-prev {
+    position: absolute;
+    top: 202px;
+    left: -68px;
+    cursor: pointer;
+    z-index: 101; }
+  .promo__slider-next {
+    position: absolute;
+    top: 232px;
+    left: -5px;
+    cursor: pointer;
+    z-index: 101; }
+  .promo__slider-wrapper {
+    position: absolute;
+    width: 300px;
+    height: 110px;
+    top: 102px;
+    left: 178px; }
+  .promo__slider-item {
+    display: none; }
+  .promo__slider-item-title {
+    font-family: "a_BighausTitulBrk";
+    font-size: 51px;
+    color: #127ea5;
+    line-height: 1.02;
+    text-align: center; }
+  .promo__slider-item-descr {
+    font-family: "a_CooperBlackNr";
+    font-size: 25px;
+    line-height: 1.16;
+    color: #ded90e;
+    text-align: center;
+    margin-top: 16px; }
+  .promo__special {
+    position: absolute;
+    top: 500px;
+    z-index: 100; }
 
 .header {
   width: 967px;
   height: 84px;
-  background: url(../img/topmenu_bg.png) center center/cover no-repeat; }
+  background: url(../img/topmenu_bg.png) center center/cover no-repeat;
+  z-index: 20; }
   .header__menu {
     width: 524px;
     height: 16px;
@@ -3089,3 +3174,6 @@ template {
 
 .map {
   height: 500px; }
+
+.active {
+  display: block; }
