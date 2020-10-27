@@ -3115,8 +3115,124 @@ template {
     margin-top: 16px; }
   .promo__special {
     position: absolute;
-    top: 500px;
+    top: 615px;
     z-index: 100; }
+  .promo__special-title {
+    font-family: "a_BodoniNovaNr";
+    font-size: 29px;
+    line-height: 1.79;
+    color: #ffffff;
+    margin-left: 19px; }
+  .promo__special-item {
+    margin-top: 21px;
+    width: 340px; }
+  .promo__special-img {
+    float: left;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    margin-top: 4px; }
+  .promo__special-item-title {
+    display: inline;
+    font-family: "Colaborate";
+    font-size: 17px;
+    color: #ffffff;
+    text-align: left;
+    margin-left: 15px; }
+  .promo__special-item-descr {
+    font-family: "Colaborate";
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1.33;
+    color: #ffffff;
+    margin-top: 2px;
+    margin-left: 101px; }
+  .promo__special-price {
+    display: inline;
+    font-family: "AGBenguiat Cyr";
+    font-size: 27px;
+    line-height: 1.93;
+    color: #ffffff;
+    margin-left: 60px; }
+  .promo__special-btn {
+    display: inline;
+    width: 101px;
+    height: 27px;
+    background-image: linear-gradient(to top, #e5db10, #fff203);
+    font-family: "AG Letterica";
+    font-size: 15px;
+    color: #64affc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 18px; }
+    .promo__special-btn:focus {
+      outline: none; }
+    .promo__special-btn:hover {
+      box-shadow: 1px 1px 10px #fff; }
+  .promo__special-line {
+    font-family: "AGBenguiat Cyr";
+    font-size: 15px;
+    color: #ffffff; }
+  .promo__tabs {
+    position: absolute;
+    top: 615px;
+    left: 426px;
+    z-index: 100;
+    width: 560px;
+    height: 330px; }
+    .promo__tabs-btn {
+      display: inline-block;
+      width: 117px;
+      height: 29px;
+      background-color: #299fc9;
+      font-family: "A1010Helvetika TYGRA";
+      font-size: 15px;
+      color: #81ffff;
+      text-transform: uppercase;
+      position: relative;
+      border-radius: 5px 5px 0 0;
+      margin-right: 6px;
+      margin-top: 66px;
+      cursor: pointer; }
+      .promo__tabs-btn span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%); }
+    .promo__tabs .tabs-btn-active {
+      background-color: #81ffff;
+      color: #127ea5; }
+    .promo__tabs-line {
+      width: 530px;
+      height: 1px;
+      background-color: #81ffff;
+      margin-top: -6px; }
+    .promo__tabs-yellow-special {
+      position: absolute;
+      top: 0;
+      left: 356px; }
+    .promo__tabs-yellow-text {
+      font-family: "CrashCTT";
+      font-size: 38px;
+      line-height: 0.74;
+      color: #64affc;
+      margin-top: -66px;
+      margin-left: 22px;
+      -webkit-text-stroke: 0.1px #fffffc; }
+      .promo__tabs-yellow-text span {
+        font-size: 28px;
+        margin-left: 6px; }
+    .promo__tabs-blue-offer {
+      position: absolute;
+      top: 50px;
+      left: 462px; }
+    .promo__tabs-blue-text {
+      font-family: "Copse";
+      font-size: 16px;
+      color: #ffffff;
+      margin-top: -28px;
+      margin-left: 17px; }
 
 .header {
   width: 967px;

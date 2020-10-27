@@ -29,6 +29,7 @@
         bottom: 0;
         z-index: 13;
     }
+
     &__form-block {
         position: absolute;
         z-index: 10;
@@ -156,6 +157,7 @@
     &__stairs {
         margin-left: 23px;
     }
+
     &__slider {
         position: absolute;
         top: 139px;
@@ -206,9 +208,149 @@
         text-align: center;
         margin-top: 16px;
     }
+
     &__special {
         position: absolute;
-        top: 500px;
+        top: 615px;
         z-index: 100;
     }
+    &__special-title {
+        font-family: "a_BodoniNovaNr";
+        font-size: 29px;
+        line-height: 1.79;
+        color: #ffffff;
+        margin-left: 19px;
+    }
+    &__special-item {
+        margin-top: 21px;
+        width: 340px;
+    }
+    &__special-img {
+        float: left;
+        border: 3px solid #fff;
+        border-radius: 5px;
+        margin-top: 4px;
+    }
+    &__special-item-title {
+        display: inline;
+        font-family: "Colaborate";
+        font-size: 17px;
+        color: #ffffff;
+        text-align: left;
+        margin-left: 15px;
+    }
+    &__special-item-descr {
+        font-family: "Colaborate";
+        font-size: 15px;
+        font-weight: 100;
+        line-height: 1.33;
+        color: #ffffff;
+        margin-top: 2px;
+        margin-left: 101px;
+    }
+    &__special-price {
+        display: inline;
+        font-family: "AGBenguiat Cyr";
+        font-size: 27px;
+        line-height: 1.93;
+        color: #ffffff;
+        margin-left: 60px;
+    }
+    &__special-btn {
+        display: inline;
+        width: 101px;
+        height: 27px;
+        background-image: linear-gradient(to top, #e5db10, #fff203);
+        font-family: "AG Letterica";
+        font-size: 15px;
+        color: #64affc;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-left: 18px;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            box-shadow: 1px 1px 10px #fff;
+        }
+    }
+    &__special-line {
+        font-family: "AGBenguiat Cyr";
+        font-size: 15px;
+        color: #ffffff;
+    }
+
+    &__tabs {
+        position: absolute;
+        top: 615px;
+        left: 426px;
+        z-index: 100;
+        width: 560px;
+        height: 330px;
+        &-btn {
+            display: inline-block;
+            width: 117px;
+            height: 29px;
+            background-color: #299fc9;
+            font-family: "A1010Helvetika TYGRA";
+            font-size: 15px;
+            color: #81ffff;
+            text-transform: uppercase;
+            position: relative;
+            border-radius: 5px 5px 0 0;
+            margin-right: 6px;
+            margin-top: 66px;
+            cursor: pointer;
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .tabs-btn-active {
+            background-color: #81ffff;
+            color: #127ea5;
+        }
+        &-line {
+            width: 530px;
+            height: 1px;
+            background-color: #81ffff;
+            margin-top: -6px;
+        }
+        &-yellow-special {
+            position: absolute;
+            top: 0;
+            left: 356px;
+        }
+        &-yellow-text {
+            font-family: "CrashCTT";
+            font-size: 38px;
+            line-height: 0.74;
+            color: #64affc;
+            margin-top: -66px;
+            margin-left: 22px;
+            -webkit-text-stroke: 0.1px #fffffc;
+            span {
+                font-size: 28px;
+                margin-left: 6px;
+            }
+        }
+        &-blue-offer {
+            position: absolute;
+            top: 50px;
+            left: 462px;
+        }
+        &-blue-text {
+            font-family: "Copse";
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: -28px;
+            margin-left: 17px;
+        }
+    }
+    
+
 }
