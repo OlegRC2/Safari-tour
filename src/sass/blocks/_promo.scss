@@ -1,5 +1,5 @@
 .promo {
-    min-height: 883px;
+    // min-height: 883px;
     background: url(../img/bg_main.png) center (center/cover) no-repeat;
     &__cloud {
         position: relative;
@@ -22,6 +22,7 @@
         top: 66px;
     }
     &__cloud-bg {
+        display: block;
         width: 100%;
         height: 200px;
         background-color: #127ea5;
@@ -211,8 +212,9 @@
 
     &__special {
         position: absolute;
-        top: 615px;
+        top: -460px;
         z-index: 100;
+        transform: scale(1.2);
     }
     &__special-title {
         font-family: "a_BodoniNovaNr";
@@ -283,11 +285,12 @@
 
     &__tabs {
         position: absolute;
-        top: 615px;
+        top: -460px;
         left: 426px;
         z-index: 100;
-        width: 560px;
+        width: 590px;
         height: 330px;
+        transform: scale(1.1);
         &-btn {
             display: inline-block;
             width: 117px;
@@ -349,6 +352,36 @@
             color: #ffffff;
             margin-top: -28px;
             margin-left: 17px;
+        }
+        &-str {
+            &:first-child {
+                margin-top: 23px;
+            }
+        }
+        &-arrow {
+            display: inline;
+            margin-left: 6px;
+        }
+        &-title {
+            display: inline-block;
+            margin-left: 10px;
+            width: 295px;
+        }
+        &-days {
+            display: inline;
+            margin-left: 54px;
+        }
+        &-details {
+            display: inline;
+            margin-left: 64px;
+            
+        }
+        .tabs-text {
+            font-family: "Colaborate";
+            font-size: 16px;
+            font-weight: 100;
+            line-height: 1.69;
+            color: #ffffff;
         }
     }
     

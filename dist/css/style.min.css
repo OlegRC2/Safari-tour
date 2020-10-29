@@ -2936,7 +2936,6 @@ template {
   margin: 0 auto; }
 
 .promo {
-  min-height: 883px;
   background: url(../img/bg_main.png) center center/cover no-repeat; }
   .promo__cloud {
     position: relative;
@@ -2956,6 +2955,7 @@ template {
     z-index: 11;
     top: 66px; }
   .promo__cloud-bg {
+    display: block;
     width: 100%;
     height: 200px;
     background-color: #127ea5;
@@ -3115,8 +3115,9 @@ template {
     margin-top: 16px; }
   .promo__special {
     position: absolute;
-    top: 615px;
-    z-index: 100; }
+    top: -460px;
+    z-index: 100;
+    transform: scale(1.2); }
   .promo__special-title {
     font-family: "a_BodoniNovaNr";
     font-size: 29px;
@@ -3175,11 +3176,12 @@ template {
     color: #ffffff; }
   .promo__tabs {
     position: absolute;
-    top: 615px;
+    top: -460px;
     left: 426px;
     z-index: 100;
-    width: 560px;
-    height: 330px; }
+    width: 590px;
+    height: 330px;
+    transform: scale(1.1); }
     .promo__tabs-btn {
       display: inline-block;
       width: 117px;
@@ -3233,6 +3235,27 @@ template {
       color: #ffffff;
       margin-top: -28px;
       margin-left: 17px; }
+    .promo__tabs-str:first-child {
+      margin-top: 23px; }
+    .promo__tabs-arrow {
+      display: inline;
+      margin-left: 6px; }
+    .promo__tabs-title {
+      display: inline-block;
+      margin-left: 10px;
+      width: 295px; }
+    .promo__tabs-days {
+      display: inline;
+      margin-left: 54px; }
+    .promo__tabs-details {
+      display: inline;
+      margin-left: 64px; }
+    .promo__tabs .tabs-text {
+      font-family: "Colaborate";
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1.69;
+      color: #ffffff; }
 
 .header {
   width: 967px;
@@ -3289,7 +3312,44 @@ template {
     text-align: center; }
 
 .map {
-  height: 500px; }
+  height: 592px;
+  background-color: #d6e6ef; }
+  .map__title {
+    font-family: "AG Letterica";
+    font-size: 27px;
+    line-height: 1.93;
+    color: #4690b4;
+    padding-top: 10px;
+    text-align: center; }
+  .map__subtitle {
+    font-family: "AG Letterica";
+    font-size: 17px;
+    color: #6ab5d0;
+    text-align: center;
+    margin-top: -6px; }
+  .map__world-map {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1; }
+  .map__target-europe {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #e98503;
+    display: inline-block;
+    z-index: 10;
+    top: 100px;
+    left: 450px; }
+    .map__target-europe-top {
+      position: absolute;
+      width: 1px;
+      height: 100px;
+      border: none;
+      background-color: #e98503;
+      top: -100px;
+      left: 50px; }
 
 .active {
   display: block; }
