@@ -2930,6 +2930,43 @@ template {
     -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important; } }
 
+@keyframes flicker-3 {
+  0%,
+  100% {
+    opacity: 1; }
+  32.98% {
+    opacity: 1; }
+  33% {
+    opacity: 0; }
+  34% {
+    opacity: 0; }
+  34.02% {
+    opacity: 1; }
+  34.98% {
+    opacity: 1; }
+  35% {
+    opacity: 0; }
+  35.9% {
+    opacity: 0; }
+  35.92% {
+    opacity: 1; }
+  38.98% {
+    opacity: 1; }
+  39% {
+    opacity: 0; }
+  39.8% {
+    opacity: 0; }
+  39.82% {
+    opacity: 1; }
+  83.98% {
+    opacity: 1; }
+  84% {
+    opacity: 0; }
+  84.9% {
+    opacity: 0; }
+  84.92% {
+    opacity: 1; } }
+
 .container {
   position: relative;
   max-width: 992px;
@@ -3333,23 +3370,151 @@ template {
     height: 100%;
     position: relative;
     z-index: 1; }
-  .map__target-europe {
+  .map__target-line {
     position: absolute;
+    border: none;
+    background-color: #e98503;
+    pointer-events: none; }
+  .map__target {
+    position: absolute;
+    border: 2px solid #e98503;
+    display: inline-block;
+    z-index: 10; }
+  .map .target-europe {
+    opacity: 0;
     width: 100px;
     height: 100px;
-    border: 1px solid #e98503;
-    display: inline-block;
-    z-index: 10;
-    top: 100px;
+    top: 96px;
     left: 450px; }
-    .map__target-europe-top {
-      position: absolute;
+    .map .target-europe:hover {
+      animation: flicker-3 2.5s linear both; }
+    .map .target-europe .europe-top {
       width: 1px;
-      height: 100px;
-      border: none;
-      background-color: #e98503;
-      top: -100px;
+      height: 96px;
+      top: -96px;
       left: 50px; }
+    .map .target-europe .europe-right {
+      width: 412px;
+      height: 1px;
+      top: 50px;
+      left: 97px; }
+    .map .target-europe .europe-bottom {
+      width: 1px;
+      height: 274px;
+      top: 97px;
+      left: 50px; }
+    .map .target-europe .europe-left {
+      width: 452px;
+      height: 1px;
+      top: 50px;
+      left: -452px; }
+  .map .target-africa {
+    opacity: 0;
+    width: 187px;
+    height: 206px;
+    top: 198px;
+    left: 403px; }
+    .map .target-africa:hover {
+      animation: flicker-3 2.5s linear both; }
+    .map .target-africa .africa-top {
+      width: 1px;
+      height: 200px;
+      top: -200px;
+      left: 93px; }
+    .map .target-africa .africa-right {
+      width: 373px;
+      height: 1px;
+      top: 103px;
+      left: 183px; }
+    .map .target-africa .africa-bottom {
+      width: 1px;
+      height: 66px;
+      top: 203px;
+      left: 93px; }
+    .map .target-africa .africa-left {
+      width: 405px;
+      height: 1px;
+      top: 103px;
+      left: -405px; }
+  .map .target-usa {
+    opacity: 0;
+    width: 180px;
+    height: 64px;
+    top: 171px;
+    left: 116px; }
+    .map .target-usa:hover {
+      animation: flicker-3 2.5s linear both; }
+    .map .target-usa .usa-top {
+      width: 1px;
+      height: 172px;
+      top: -173px;
+      left: 93px; }
+    .map .target-usa .usa-right {
+      width: 666px;
+      height: 1px;
+      top: 32px;
+      left: 176px; }
+    .map .target-usa .usa-bottom {
+      width: 1px;
+      height: 236px;
+      top: 60px;
+      left: 93px; }
+    .map .target-usa .usa-left {
+      width: 118px;
+      height: 1px;
+      top: 32px;
+      left: -118px; }
+  .map .target-south-america {
+    opacity: 0;
+    width: 133px;
+    height: 203px;
+    top: 268px;
+    left: 230px; }
+    .map .target-south-america:hover {
+      animation: flicker-3 2.5s linear both; }
+    .map .target-south-america .south-america-top {
+      width: 1px;
+      height: 270px;
+      top: -270px;
+      left: 66px; }
+    .map .target-south-america .south-america-right {
+      width: 599px;
+      height: 1px;
+      top: 101px;
+      left: 130px; }
+    .map .target-south-america .south-america-left {
+      width: 232px;
+      height: 1px;
+      top: 101px;
+      left: -232px; }
+  .map .target-australia {
+    opacity: 0;
+    width: 115px;
+    height: 98px;
+    top: 334px;
+    left: 751px; }
+    .map .target-australia:hover {
+      animation: flicker-3 2.5s linear both; }
+    .map .target-australia .australia-top {
+      width: 1px;
+      height: 336px;
+      top: -336px;
+      left: 58px; }
+    .map .target-australia .australia-right {
+      width: 96px;
+      height: 1px;
+      top: 49px;
+      left: 112px; }
+    .map .target-australia .australia-bottom {
+      width: 1px;
+      height: 38px;
+      top: 94px;
+      left: 58px; }
+    .map .target-australia .australia-left {
+      width: 753px;
+      height: 1px;
+      top: 49px;
+      left: -753px; }
 
 .active {
   display: block; }
