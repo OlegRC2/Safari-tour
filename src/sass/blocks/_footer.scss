@@ -1,0 +1,14 @@
+.footer {
+    background-color: #127ea5;
+    height: 318px;
+    &__wrapper {
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    &__social-img {
+        width: 39px;
+        height: 39px;
+    }
+}
