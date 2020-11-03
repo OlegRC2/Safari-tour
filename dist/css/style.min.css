@@ -3651,13 +3651,136 @@ template {
 
 .footer {
   background-color: #127ea5;
-  height: 318px; }
+  height: 330px;
+  padding-top: 23px; }
   .footer__wrapper {
     display: flex;
     justify-content: space-around; }
+  .footer__title {
+    text-shadow: 0.4px 0.9px 0 rgba(15, 111, 146, 0.75);
+    font-family: "Colaborate";
+    font-weight: 500;
+    font-size: 25px;
+    color: #ffffff; }
+  .footer .footer-input {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    display: block;
+    width: 193px;
+    height: 31px;
+    background: #0f6686;
+    background-clip: padding-box;
+    border: solid 1px transparent;
+    border-radius: 7px;
+    box-shadow: inset 1.1px 2.8px 8px 0 rgba(13, 66, 85, 0.75);
+    font-family: "Colaborate";
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 1.21;
+    color: rgba(255, 255, 255, 0.33);
+    padding-left: 12px; }
+    .footer .footer-input::placeholder {
+      font-family: "Colaborate";
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 1.21;
+      color: rgba(255, 255, 255, 0.33); }
+    .footer .footer-input:focus {
+      outline: none; }
+  .footer .border-input {
+    position: relative;
+    display: inline-block;
+    width: 193px;
+    height: 31px;
+    background: #fff;
+    background-clip: padding-box;
+    border: solid 1px transparent;
+    border-radius: 7px; }
+    .footer .border-input:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(to bottom, #133e4e, #98d8ef); }
+  .footer .subscription-form {
+    position: relative;
+    z-index: 10;
+    width: 296px; }
+    .footer .subscription-form__border {
+      margin-top: 12px; }
+    .footer .subscription-form__btn {
+      display: inline-block;
+      position: absolute;
+      top: 11px;
+      right: 0; }
+  .footer__social-title {
+    text-shadow: 0.4px 0.9px 0 rgba(15, 111, 146, 0.75);
+    font-family: "Colaborate";
+    font-size: 25px;
+    color: #ffffff;
+    margin-top: 20px; }
+  .footer__social-wrapper {
+    width: 136px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; }
   .footer__social-img {
     width: 39px;
     height: 39px; }
+  .footer .contact-style {
+    font-family: "Colaborate";
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1.93;
+    color: #ffffff; }
+    .footer .contact-style-link {
+      color: #ffffff; }
+      .footer .contact-style-link:hover {
+        color: #ffffff; }
+  .footer__contact-descr {
+    margin-top: 15px; }
+  .footer__contact-email span {
+    margin-left: 34px; }
+  .footer .contact-form {
+    position: relative;
+    width: 284px;
+    z-index: 10;
+    margin-top: 9px; }
+    .footer .contact-form__border {
+      display: block;
+      margin-bottom: 13px; }
+      .footer .contact-form__border:nth-child(4) {
+        width: 284px;
+        height: 57px; }
+    .footer .contact-form__textarea {
+      width: 284px;
+      height: 57px;
+      resize: none; }
+    .footer .contact-form__btn {
+      margin-left: 193px; }
+  .footer .footer__btn {
+    width: 91px;
+    height: 33px;
+    background-color: #d6e6ef;
+    font-family: "Colaborate";
+    font-size: 16px;
+    font-weight: 500;
+    color: #1380a7;
+    border: none;
+    border-radius: 6px; }
+    .footer .footer__btn:focus {
+      outline: none; }
+    .footer .footer__btn:hover {
+      box-shadow: 1px 1px 10px #d6e6ef; }
 
 .active {
   display: block; }
+
+.hide {
+  display: none; }

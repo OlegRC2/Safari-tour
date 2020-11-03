@@ -446,13 +446,15 @@
         <div class="container">
             <div class="footer__wrapper">
                 <div class="footer__form-and-social">
-                    <div class="footer__subscription-title">News letter</div>
+                    <div class="footer__title">News letter</div>
                     <form action="#" class="subscription-form">
-                        <input class="subscription-form__input" name="email" required type="email" placeholder="enter email address">
-                        <button class="subscription-form__btn"></button>
+                        <div class="subscription-form__border border-input">
+                            <input class="subscription-form__input footer-input" name="email" required type="email" placeholder="enter email address">
+                        </div>
+                        <button class="subscription-form__btn footer__btn">Subscribe</button>
                     </form>
 
-                    <div class="footer__social-title">Social media</div>
+                    <div class="footer__title">Social media</div>
                     <div class="footer__social-wrapper">
                         <a href="#" class="footer__social-link">
                             <img src="icons/twitter.svg" alt="twitter" class="footer__social-img">
@@ -467,28 +469,46 @@
                 </div>
 
                 <div class="footer__contact">
-                    <div class="footer__contact-title">Contact us</div>
-                    <div class="footer__contact-descr">
+                    <div class="footer__title">Contact us</div>
+                    <div class="footer__contact-descr contact-style">
                         Lorem Ipsum is simply dummy<br>
                         Printing and typesetting 
                     </div>
-                    <div class="footer__contact-phone">
+                    <div class="footer__contact-phone contact-style">
                         Phone :
-                        <a href="tel:+9745512832" class="footer__contact-phone-link">+9745512832</a>,
-                        <a href="tel:+55418745" class="footer__contact-phone-link">55418745</a>
+                        <a href="tel:+9745512832" class="footer__contact-phone-link contact-style-link">+9745512832</a>,
+                        <a href="tel:+55418745" class="footer__contact-phone-link contact-style-link">55418745</a>
                     </div>
-                    <div class="footer__contact-email">
+                    <div class="footer__contact-email contact-style">
                         email :
-                        <a href="mailto:mail@yourdomain.com" class="footer__contact-email-link">mail@yourdomain.com</a><br>
-                        : <a href="mailto:Info@yourdomain.com" class="footer__contact-email-link">Info@yourdomain.com</a>         
+                        <a href="mailto:mail@yourdomain.com" class="footer__contact-email-link contact-style-link">mail@yourdomain.com</a><br>
+                        <span>
+                            : <a href="mailto:Info@yourdomain.com" class="footer__contact-email-link contact-style-link">Info@yourdomain.com</a> 
+                        </span>
+                                
                     </div>
-                    <div class="footer__contact-fax">
+                    <div class="footer__contact-fax contact-style">
                         Fax     : 1447854, 5564215, 55428
                     </div>
                 </div>
 
                 <div class="footer__contact-form">
-                    <div class="footer__contact-form-title">Contact form</div>
+                    <div class="footer__title">Contact form</div>
+                    <form action="#" class="contact-form">
+                        <div class="contact-form__border border-input">
+                            <input class="contact-form__input footer-input" name="name" required type="text" placeholder="Name">
+                        </div>
+                        <div class="contact-form__border border-input">
+                            <input class="contact-form__input footer-input" name="email" required type="email" placeholder="email address">
+                        </div>
+                        <div class="contact-form__border border-input">
+                            <input class="contact-form__input footer-input" name="phone" required type="phone" placeholder="phone">
+                        </div>
+                        <div class="contact-form__border border-input">
+                            <textarea class="contact-form__textarea footer-input" name="message" placeholder="Message"></textarea>
+                        </div>
+                        <button class="contact-form__btn footer__btn">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>

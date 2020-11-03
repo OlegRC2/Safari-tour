@@ -1,14 +1,168 @@
 .footer {
     background-color: #127ea5;
-    height: 318px;
+    height: 330px;
+    padding-top: 23px;
     &__wrapper {
         display: flex;
         justify-content: space-around;
     }
+    &__title {
+        text-shadow: 0.4px 0.9px 0 rgba(15, 111, 146, 0.75);
+        font-family: "Colaborate";
+        font-weight: 500;
+        font-size: 25px;
+        color: #ffffff;
+    }
 
+    .footer-input {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        display: block;
+        width: 193px;
+        height: 31px;
+        background: #0f6686;
+        background-clip: padding-box;
+        border: solid 1px transparent;
+        border-radius: 7px;
+        box-shadow: inset 1.1px 2.8px 8px 0 rgba(13, 66, 85, 0.75);
+        font-family: "Colaborate";
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 1.21;
+        color: rgba(255, 255, 255, 0.33);
+        padding-left: 12px;
+        &::placeholder {
+            font-family: "Colaborate";
+            font-size: 14px;
+            font-weight: 100;
+            line-height: 1.21;
+            color: rgba(255, 255, 255, 0.33);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    .border-input {
+        position: relative;
+        display: inline-block;
+        width: 193px;
+        height: 31px;
+        background: #fff;
+        background-clip: padding-box;
+        border: solid 1px transparent;
+        border-radius: 7px;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px; 
+            border-radius: inherit;
+            background: linear-gradient(to bottom, #133e4e, #98d8ef);
+        }
+    }
 
-    &__social-img {
-        width: 39px;
-        height: 39px;
+    .subscription {
+        &-form {
+            position: relative;
+            z-index: 10;
+            width: 296px;
+            &__border {
+                margin-top: 12px;
+            }
+            &__btn {
+                display: inline-block;
+                position: absolute;
+                top: 11px;
+                right: 0;
+            }
+        } 
+    }
+
+    &__social {
+        &-title {
+            text-shadow: 0.4px 0.9px 0 rgba(15, 111, 146, 0.75);
+            font-family: "Colaborate";
+            font-size: 25px;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+        &-wrapper {
+            width: 136px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        &-img {
+            width: 39px;
+            height: 39px;
+        }
+    }
+
+    .contact-style {
+        font-family: "Colaborate";
+        font-size: 15px;
+        font-weight: 100;
+        line-height: 1.93;
+        color: #ffffff;
+        &-link {
+            color: #ffffff;
+            &:hover {
+                color: #ffffff;
+            }
+        }
+    }
+
+    &__contact {
+        &-descr {
+            margin-top: 15px;
+        }
+        &-email {
+            span {
+                margin-left: 34px;
+            }
+        }
+    }
+    
+    .contact-form {
+        position: relative;
+        width: 284px;
+        z-index: 10;
+        margin-top: 9px;
+        &__border {
+            display: block;
+            margin-bottom: 13px;
+            &:nth-child(4) {
+                width: 284px;
+                height: 57px;
+            }
+        }
+        &__textarea {
+            width: 284px;
+            height: 57px;
+            resize: none;
+        }
+        &__btn {
+            margin-left: 193px;
+        }
+    }
+
+    .footer__btn {
+        width: 91px;
+        height: 33px;
+        background-color: #d6e6ef;
+        font-family: "Colaborate";
+        font-size: 16px;
+        font-weight: 500;
+        color: #1380a7;
+        border: none;
+        border-radius: 6px;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            box-shadow: 1px 1px 10px #d6e6ef;
+        }
     }
 }
