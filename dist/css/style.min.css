@@ -2967,6 +2967,14 @@ template {
   84.92% {
     opacity: 1; } }
 
+@keyframes slide-in-fwd-center {
+  0% {
+    transform: translateZ(-1400px);
+    opacity: 0; }
+  100% {
+    transform: translateZ(0);
+    opacity: 1; } }
+
 .container {
   position: relative;
   max-width: 992px;
@@ -3293,6 +3301,17 @@ template {
       font-weight: 100;
       line-height: 1.69;
       color: #ffffff; }
+    .promo__tabs-content {
+      display: flex;
+      flex-wrap: wrap; }
+      .promo__tabs-content:last-child {
+        width: 533px;
+        justify-content: space-between; }
+    .promo__tabs .preview {
+      width: 125px;
+      border: 3px solid #fff;
+      border-radius: 5px;
+      margin-top: 23px; }
 
 .header {
   width: 967px;
@@ -3688,6 +3707,9 @@ template {
       color: rgba(255, 255, 255, 0.33); }
     .footer .footer-input:focus {
       outline: none; }
+    .footer .footer-input:-webkit-autofill, .footer .footer-input:-webkit-autofill:hover, .footer .footer-input:-webkit-autofill:focus, .footer .footer-input:-webkit-autofill:active {
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.33);
+      -webkit-box-shadow: 0 0 0px 1000px #0f6686 inset; }
   .footer .border-input {
     position: relative;
     display: inline-block;
@@ -3778,6 +3800,45 @@ template {
       outline: none; }
     .footer .footer__btn:hover {
       box-shadow: 1px 1px 10px #d6e6ef; }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  background-color: rgba(0, 0, 0, 0.5); }
+  .modal__window {
+    position: fixed;
+    width: 350px;
+    height: 200px;
+    background-color: #fff;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #299fca;
+    border-radius: 6px; }
+  .modal__content {
+    padding: 20px;
+    font-family: "Colaborate";
+    font-weight: 500;
+    font-size: 15px;
+    color: #299fca;
+    text-align: center; }
+  .modal__close {
+    position: absolute;
+    top: -31px;
+    right: -45px;
+    border: none;
+    background: transparent;
+    color: #299fca;
+    font-size: 45px; }
+    .modal__close:focus {
+      outline: none; }
+  .modal__title {
+    margin-bottom: 15px; }
 
 .active {
   display: block; }

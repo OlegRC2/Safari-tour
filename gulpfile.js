@@ -12,7 +12,7 @@ const imagemin = require('gulp-imagemin');
 const htmlmin = require('gulp-htmlmin');
 
 const dist = "./dist";
-// const dist = "C:/openserver/domains/Test3";
+//const dist = "C:/openserver/domains/Test3";
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/*.html")
