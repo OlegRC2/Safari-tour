@@ -1,10 +1,13 @@
 import {postData} from '../services/requests';                                          // импортируем функцию отправки запроса из файла 
+import {fadeIn} from './animationVariables';                                            // импорт анимации
+import {calcScroll} from './gallary';                                                   // импорт анимации
 
 function form (formSelector, modalSelector, modalContentSelector, myMessage = 'none') { // функция для работы форм, сообщение об отправке будет добавляться в уже существующее модальное окно. Аргументы: formSelector - селектор формы, modalSelector - селектор модального окна, modalContentSelector - селектор контента модального окна, где будет появляться сообщение после отправки данных формы, myMessage - можно передать в функцию свое сообщение вместо стандартного, в данном случае используется для формы с подпиской                 
 
     const form = document.querySelector(formSelector),                                  // берем форму
           modal = document.querySelector(modalSelector),                                // берем модальное окно
           modalContent = document.querySelector(modalContentSelector);                  // берем контент модального окна
+          scroll = calcScroll();                                                        // вычисляем ширину полосы прокрутки
 
     const message = {                                                                   // объект с сообщениями пользователю
         loading: 'Loading...',
@@ -13,7 +16,6 @@ function form (formSelector, modalSelector, modalContentSelector, myMessage = 'n
         myText: myMessage,
     };
 
-
     form.addEventListener('submit', (e) => {                                            // навешиваем на форму обработчик, срабатывающий при подтверждении формы
         e.preventDefault();                                                             // отменяем стандартное поведение браузера (перезагрузку страницы)
 
@@ -21,10 +23,10 @@ function form (formSelector, modalSelector, modalContentSelector, myMessage = 'n
 
         statusMessageText.textContent = message.loading;                                // добавили в новый div сообщение с текстом
         modalContent.append(statusMessageText);                                         // добавляем сообщение в модальное окно
-        modal.classList.remove('fadeOut');                                              // удаляем класс анимации закрытия, если окно уже открывалось
         modal.style.display = 'block';                                                  // показываем модальное окно
-        modal.classList.add('animated', 'fadeIn');                                      // добавляем анимацию появления
+        modal.style.animation = fadeIn;                                                 // добавляем анимацию появления
         document.body.style.overflow = 'hidden';                                        // запрет прокрутки страницы во время того как открыто модальное окно
+        document.body.style.marginRight = `${scroll}px`;                                // добавляем сдвиг всей страницы на ширину полосы прокрутки, чтобы страница не дергалась при открытии модального окна
         
         const formData = new FormData(form);                                            // создаем переменную по классу FormData. Этот класс собирает данные, которые надо отправить. У инпутов в формах должен обязательно быть атрибут "name", без него работать не будет
 

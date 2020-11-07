@@ -1,3 +1,5 @@
+import {fadeOut} from './animationVariables';                                                       // импорт анимации
+
 function modal(modalSelector, modalBtn, content) {                                                  // функция закрытия модального окна по кнопке или клике вне окна. Аргументы modalSelector - модальное окно, modalBtn - кнопка закрытия, блок с контентом окна, куда добавляется сообщение
 
     const modal = document.querySelector(modalSelector),                                            // берем модальное окно
@@ -6,9 +8,10 @@ function modal(modalSelector, modalBtn, content) {                              
     
     function closeModal() {                                                                         // функция для закрытия модального окна
         
-        modal.classList.remove('fadeIn');
-        modal.classList.add('fadeOut');                                                             // добавляем анимацию исчезания
+        modal.style.animation = fadeOut;                                                            // добавляем анимацию исчезания
+
         document.body.style.overflow = '';                                                          // установка дефолтного значения на параметр прокрутки страницы
+        document.body.style.marginRight = `0px`;                                                    // убираем сдвиг всей страницы на ширину полосы прокрутки, чтобы страница не дергалась при закрытии модального окна
         
         setTimeout(() => {
             modal.style.display = 'none';                                                           // скрываем окно

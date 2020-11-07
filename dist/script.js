@@ -4286,6 +4286,27 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./src/js/modules/animationVariables.js":
+/*!**********************************************!*\
+  !*** ./src/js/modules/animationVariables.js ***!
+  \**********************************************/
+/*! exports provided: fadeIn, fadeOut, planeAnimation, fadeInBottom */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fadeIn", function() { return fadeIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fadeOut", function() { return fadeOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "planeAnimation", function() { return planeAnimation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fadeInBottom", function() { return fadeInBottom; });
+var fadeIn = 'slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+    fadeOut = 'slide-out-bck-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
+    planeAnimation = 'plane 1s ease-in both',
+    fadeInBottom = 'slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
+
+
+/***/ }),
+
 /***/ "./src/js/modules/form.js":
 /*!********************************!*\
   !*** ./src/js/modules/form.js ***!
@@ -4302,10 +4323,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_promise_finally__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.promise.finally */ "./node_modules/core-js/modules/es.promise.finally.js");
 /* harmony import */ var core_js_modules_es_promise_finally__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_finally__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _services_requests__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/requests */ "./src/js/services/requests.js");
+/* harmony import */ var _animationVariables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./animationVariables */ "./src/js/modules/animationVariables.js");
+/* harmony import */ var _gallary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./gallary */ "./src/js/modules/gallary.js");
 
 
 
  // импортируем функцию отправки запроса из файла 
+
+ // импорт анимации
+
+ // импорт анимации
 
 function form(formSelector, modalSelector, modalContentSelector) {
   var myMessage = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'none';
@@ -4315,6 +4342,8 @@ function form(formSelector, modalSelector, modalContentSelector) {
   modal = document.querySelector(modalSelector),
       // берем модальное окно
   modalContent = document.querySelector(modalContentSelector); // берем контент модального окна
+
+  scroll = Object(_gallary__WEBPACK_IMPORTED_MODULE_5__["calcScroll"])(); // вычисляем ширину полосы прокрутки
 
   var message = {
     // объект с сообщениями пользователю
@@ -4333,13 +4362,13 @@ function form(formSelector, modalSelector, modalContentSelector) {
 
     modalContent.append(statusMessageText); // добавляем сообщение в модальное окно
 
-    modal.classList.remove('fadeOut'); // удаляем класс анимации закрытия, если окно уже открывалось
-
     modal.style.display = 'block'; // показываем модальное окно
 
-    modal.classList.add('animated', 'fadeIn'); // добавляем анимацию появления
+    modal.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_4__["fadeIn"]; // добавляем анимацию появления
 
     document.body.style.overflow = 'hidden'; // запрет прокрутки страницы во время того как открыто модальное окно
+
+    document.body.style.marginRight = "".concat(scroll, "px"); // добавляем сдвиг всей страницы на ширину полосы прокрутки, чтобы страница не дергалась при открытии модального окна
 
     var formData = new FormData(form); // создаем переменную по классу FormData. Этот класс собирает данные, которые надо отправить. У инпутов в формах должен обязательно быть атрибут "name", без него работать не будет
 
@@ -4386,6 +4415,146 @@ function form(formSelector, modalSelector, modalContentSelector) {
 
 /***/ }),
 
+/***/ "./src/js/modules/gallary.js":
+/*!***********************************!*\
+  !*** ./src/js/modules/gallary.js ***!
+  \***********************************/
+/*! exports provided: default, calcScroll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calcScroll", function() { return calcScroll; });
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _animationVariables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animationVariables */ "./src/js/modules/animationVariables.js");
+
+
+ // импорт анимации
+
+function gallary(sectionWithGallry, previewSelector) {
+  // функция для показа картинок из блока с галереей на весь экран. Аргументы: sectionWithGallry - секция в которой находится галерея (в конец этой секции будет добавляться новый элемент), previewSelector - все превьюшки изображений
+  var gallaryWindow = document.querySelector(sectionWithGallry),
+      // получаем главный родительский элемент блока с галереей
+  preview = document.querySelectorAll(previewSelector),
+      // получаем все превью всех изображений
+  scroll = calcScroll(); // вычисляем ширину полосы прокрутки
+
+  function openImg(src, alt) {
+    // функция открытия картинки   
+    var parentElement = document.createElement('div'),
+        // создаем элемент div
+    imgElement = document.createElement('img'),
+        // создаем элемент img
+    animationElement = document.createElement('div'); // создаем элемент div, для анимации
+
+    parentElement.classList.add('new-div-with-img'); // задали класс новому элементу
+
+    imgElement.src = src; // назначаем нужный адрес изображения
+
+    imgElement.alt = alt; // назначаем нужный альт
+
+    parentElement.style.cssText = "\n            display: block;\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            z-index: 110;\n            background-color: rgba(0, 0, 0, 0.8);\n        "; // задали стили для темной подложки
+
+    animationElement.style.cssText = "\n            display: block;\n            position: fixed;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n        "; // задали стили для пустого элемента
+
+    imgElement.style.cssText = "\n            display: block;\n            position: absolute;\n            left: 50%;\n            top: 50%;\n            transform: translate(-50%, -50%);\n            width: 100vh;\n        "; // задали стили для картинки
+
+    parentElement.append(animationElement); // добавили элемент для анимации в div с подложкой
+
+    animationElement.append(imgElement); // добавили картинку в элемент для анимации
+
+    gallaryWindow.append(parentElement); // добавили в html созданный елемент 
+
+    parentElement.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["fadeIn"]; // добавляем анимацию появления
+
+    animationElement.classList.add('animateGallary'); // добавляем класс элементу, чтобы потом его найти по этому классу
+
+    animationElement.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["fadeIn"]; // добавляем анимацию появления
+
+    document.body.style.overflow = 'hidden'; // запрет прокрутки страницы во время того как открыто изображение
+
+    document.body.style.marginRight = "".concat(scroll, "px"); // добавляем сдвиг всей страницы на ширину полосы прокрутки, чтобы страница не дергалась при открытии модального окна
+  }
+
+  function closeImg() {
+    // функция закрытия изображения
+    var newDiv = gallaryWindow.lastElementChild,
+        // берем весь созданный блок элементов
+    animationElement = document.querySelector('.animateGallary'),
+        // отдельно берем элемент для анимации
+    parentElement = document.querySelector('.new-div-with-img'); // берем подложку (для анимации)
+
+    animationElement.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["fadeOut"]; // добавляем анимацию закрытия
+
+    parentElement.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["fadeOut"]; // добавляем анимацию закрытия
+
+    setTimeout(function () {
+      return newDiv.remove();
+    }, 500); // удаляем созданный блок через 500 мс после анимации  
+
+    document.body.style.overflow = ''; // установка дефолтного значения на параметр прокрутки страницы
+
+    document.body.style.marginRight = "0px"; // убираем сдвиг всей страницы на ширину полосы прокрутки, чтобы страница не дергалась при закрытии модального окна
+  }
+
+  preview.forEach(function (item) {
+    // навешиваем обработчик клика на все превью
+    item.addEventListener('click', function (event) {
+      event.preventDefault(); // отменяем стандартное поведение браузера
+
+      var target = event.target; // элемент в который кликнули
+
+      if (target == item) {
+        // если кликнутый элемент равен перебираемому
+        var src = item.parentElement.href,
+            // вытаскиваем из него путь к изображению
+        alt = item.alt; // и альт
+
+        openImg(src, alt); // открываем это изображение
+
+        var newDiv = document.querySelector('.animateGallary'); // берем созданный элемент для анимации
+
+        newDiv.addEventListener('click', function (event) {
+          // вешаем обработчик клика
+          if (event.target == newDiv) {
+            // если кликнули на этот элемент
+            closeImg(); // закрываем изображение
+          }
+        });
+      }
+    });
+  });
+}
+
+function calcScroll() {
+  // функция для того чтобы страница не прыгала, когда открывается окно. Прыгает потому что убирается полоса прокрутки сбоку страницы
+  var div = document.createElement('div'); // создаем элемент
+
+  div.style.width = '50px'; // задаем ширину блоку
+
+  div.style.height = '50px'; // задаем высоту блоку
+
+  div.style.overflowY = 'scroll'; // задаем блоку скролл по Y
+
+  div.style.visibility = 'hidden'; // элемент остается на странице, но становится полностью прозрачным
+
+  document.body.appendChild(div); // добавляем элемент в html документ
+
+  var scrollWidth = div.offsetWidth - div.clientWidth; // из общей ширины блока вычитаем ширину контента с паддингами и получаем ширину прокрутки
+
+  div.remove(); // удаляем элемент со страницы
+
+  return scrollWidth; // возвращаем ширину полосы прокрутки
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (gallary);
+
+
+/***/ }),
+
 /***/ "./src/js/modules/map.js":
 /*!*******************************!*\
   !*** ./src/js/modules/map.js ***!
@@ -4401,25 +4570,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _animationVariables__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animationVariables */ "./src/js/modules/animationVariables.js");
 
 
 
+ // импорт анимации
 
-function map(targetSelector, modalSelector) {
+function map(targetSelector, modalSelector, modalCloseSelector) {
+  // функция появления модального окна по клике по карте. Аргументы: targetSelector - "цель", по которой кликают; modalSelector - модальное окно; modalCloseSelector - кнопка закрытия модального окна
   var mapTarget = document.querySelectorAll(targetSelector),
-      mapModal = document.querySelectorAll(modalSelector); // mapModal.forEach(modal => {
-  //     modal.classList.add('animated');
-  // });
+      // берем все "цели"
+  mapModal = document.querySelectorAll(modalSelector),
+      // берем все модальные окна
+  modalClose = document.querySelectorAll(modalCloseSelector); // берем все кнопки закрытия
 
+  modalClose.forEach(function (modal) {
+    // перебираем псевдомассив с кнопками закрытия
+    modal.addEventListener('click', function () {
+      // навешиваем на каждую обработчик клика
+      mapModal.forEach(function (item) {
+        // перебираем псевдомассив с окнами
+        item.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_3__["fadeOut"]; // добавляем каждому окну анимацию закрытия
+
+        setTimeout(function () {
+          item.style.display = 'none'; // скрываем все окна
+        }, 500); // через 0,5 сек
+      });
+    });
+  });
   mapTarget.forEach(function (item) {
+    // перебираем все "цели"
     item.addEventListener('click', function (e) {
-      var target = e.target;
+      // навешиваем на каждую обработчик клика
+      var target = e.target; // инициализируем цель события
+
       mapModal.forEach(function (modal) {
+        // перебираем псевдомассив с окнами
+        modal.style.display = 'none'; // скрываем все открытые окна
+
         if (target && target.className.slice(19) === modal.className.slice(17)) {
-          modal.style.animation = 'slide-in-fwd-center 1.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
-          modal.style.display = 'block'; // modal.style.cssText = `
-          //     animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-          // `;   
+          // если цель события существует и цель события содержит в конце имени класса (с 19 символа до конца, строгая привязка к "правильному" названию классса) ту же страну что и страна в конце класса у окна
+          modal.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_3__["fadeIn"]; // добавляем анимацию появления
+
+          modal.style.display = 'block'; // показываем это окно
         }
       });
     });
@@ -4439,6 +4632,9 @@ function map(targetSelector, modalSelector) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animationVariables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animationVariables */ "./src/js/modules/animationVariables.js");
+ // импорт анимации
+
 function modal(modalSelector, modalBtn, content) {
   // функция закрытия модального окна по кнопке или клике вне окна. Аргументы modalSelector - модальное окно, modalBtn - кнопка закрытия, блок с контентом окна, куда добавляется сообщение
   var modal = document.querySelector(modalSelector),
@@ -4449,10 +4645,11 @@ function modal(modalSelector, modalBtn, content) {
 
   function closeModal() {
     // функция для закрытия модального окна
-    modal.classList.remove('fadeIn');
-    modal.classList.add('fadeOut'); // добавляем анимацию исчезания
+    modal.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_0__["fadeOut"]; // добавляем анимацию исчезания
 
     document.body.style.overflow = ''; // установка дефолтного значения на параметр прокрутки страницы
+
+    document.body.style.marginRight = "0px"; // убираем сдвиг всей страницы на ширину полосы прокрутки, чтобы страница не дергалась при закрытии модального окна
 
     setTimeout(function () {
       modal.style.display = 'none'; // скрываем окно
@@ -4523,6 +4720,183 @@ function sizeMapSection(cloud, firstSection, headerSelector) {
 
 /***/ }),
 
+/***/ "./src/js/modules/slider.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/slider.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _animationVariables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animationVariables */ "./src/js/modules/animationVariables.js");
+
+
+ // импорт анимации
+
+function slider(planeSelector, nextSelector, prevSelector, slideSelector) {
+  var plane = document.querySelector(planeSelector),
+      // берем самолет (для приминения к нему анимации)
+  next = document.querySelector(nextSelector),
+      // берем все кнопку "вперед"
+  prev = document.querySelector(prevSelector),
+      // берем все кнопку "назад"
+  slides = document.querySelectorAll(slideSelector); // берем все слайды
+
+  var slideIndex = 1; // переменная отображающая текущий слайд
+
+  function showSlides(n) {
+    // функция показа слайдов, n-slideIndex - слайд, который показывается первым
+    if (n > slides.length) {
+      // если n выходит больше кол-ва слайдов
+      slideIndex = 1; // сбрасываем slideIndex
+    }
+
+    if (n < 1) {
+      // если долистали в обратную сторону
+      slideIndex = slides.length; // ставим slideIndex в значение последнего слайда 
+    }
+
+    slides.forEach(function (item) {
+      // перебираем все слайды
+      item.classList.add('hide'); // скрываем все слайды
+    });
+    slides[slideIndex - 1].classList.remove('hide'); // удалили класс скрытия с нужного слайда
+
+    slides[slideIndex - 1].classList.add('active'); // показываем нужный слайд
+
+    slides[slideIndex - 1].style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["fadeInBottom"]; // добавляем анимацию нужному слайду
+  }
+
+  showSlides(slideIndex); // запускаем функцию для показа первого слайда
+
+  function plusSlides(n) {
+    // функция переключения слайдов
+    showSlides(slideIndex += n); // присваиваем со сложением переменной slideIndex n (slideIndex = slideIndex + n) и вызываем с этим значением функцию
+  }
+
+  prev.addEventListener('click', function () {
+    // навешиваем обработчик клика на кнопку назад
+    plusSlides(-1); // когда нажимаем назад, то вычитаем из slideIndex 1
+
+    plane.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["planeAnimation"]; // добавляем анимацию самолету
+
+    setTimeout(function () {
+      plane.style.animation = 'none'; // убираем анимацию с самолета
+    }, 1000); // через 1 сек
+  });
+  next.addEventListener('click', function () {
+    // навешиваем обработчик клика на кнопку вперед
+    plusSlides(1); // когда нажимаем вперед, то прибавляем к slideIndex 1
+
+    plane.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_2__["planeAnimation"]; // добавляем анимацию самолету
+
+    setTimeout(function () {
+      plane.style.animation = 'none'; // убираем анимацию с самолета
+    }, 1000); // через 1 сек
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (slider);
+
+/***/ }),
+
+/***/ "./src/js/modules/tabs.js":
+/*!********************************!*\
+  !*** ./src/js/modules/tabs.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.slice */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _animationVariables__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animationVariables */ "./src/js/modules/animationVariables.js");
+
+
+
+ // импорт анимации
+
+function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass) {
+  var tabs = document.querySelectorAll(tabsSelector),
+      // получаем кнопки-табы
+  tabsContent = document.querySelectorAll(tabsContentSelector),
+      // получаем контент в самих табах
+  tabsParent = document.querySelector(tabsParentSelector); // получаем родителя, в котором ссылки на табы
+
+  function hideTabContent() {
+    // функция скрывания всех табов
+    tabsContent.forEach(function (item) {
+      item.classList.remove('active'); // в классе activ задается display: block
+
+      item.style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_3__["fadeOut"]; // добавляем анимацию закрытия                
+
+      item.classList.add('hide'); // в классе hide задается display: none
+    });
+    tabs.forEach(function (item) {
+      // убираем класс активности со всех кнопок-табов
+      item.classList.remove(activeClass);
+    });
+  }
+
+  function showTabContent() {
+    var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    // функция показа одного элемента. Задаем i=0 по дефолту, чтобы сначала был активен первый таб
+    tabsContent[i].classList.remove('hide');
+    tabsContent[i].classList.add('active');
+    tabsContent[i].style.animation = _animationVariables__WEBPACK_IMPORTED_MODULE_3__["fadeIn"]; // добавляем анимацию показа
+
+    tabs[i].classList.add(activeClass);
+  }
+
+  hideTabContent(); // скрыли все табы
+
+  showTabContent(); // показали дефолтное значение
+
+  tabsParent.addEventListener('click', function (event) {
+    // вешаем обработчик клика
+    var target = event.target; // элемент в который кликнули
+
+    if (target && target.classList.contains(tabsSelector.slice(1))) {
+      // смотрим что кликнули в нужный элемент. Т.к. tabsSelector с точкой, то нужно ее вырезать
+      tabs.forEach(function (item, i) {
+        // перебираем все табы 
+        if (target == item) {
+          // если таб, на который кликнули совпадает с перебираемым
+          hideTabContent(); // скрываем все табы и
+
+          showTabContent(i); // показываем тот, который сейчас в переборе
+        }
+      });
+    }
+
+    if (target && target.tagName == 'SPAN') {
+      // если кликнули на тег span, который внутри
+      tabs.forEach(function (item, i) {
+        if (target.parentNode == item) {
+          // если родитель спана совпадает с перебираемым                     
+          hideTabContent(); // скрываем все табы и
+
+          showTabContent(i); // показываем тот, который сейчас в переборе
+        }
+      });
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (tabs);
+
+/***/ }),
+
 /***/ "./src/js/script.js":
 /*!**************************!*\
   !*** ./src/js/script.js ***!
@@ -4536,6 +4910,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/form */ "./src/js/modules/form.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
 /* harmony import */ var _modules_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/map */ "./src/js/modules/map.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
+/* harmony import */ var _modules_gallary__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/gallary */ "./src/js/modules/gallary.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+
+
+
 
 
 
@@ -4551,7 +4931,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('.modal', '.modal__close', '.modal__content'); // функция для закрытия модального окна, которое открывается после формы
 
-  Object(_modules_map__WEBPACK_IMPORTED_MODULE_3__["default"])('.map__target', '.map__modal');
+  Object(_modules_map__WEBPACK_IMPORTED_MODULE_3__["default"])('.map__target', '.map__modal', '.map__modal-close'); // функция для показа окон на карте
+
+  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_4__["default"])('.promo__tabs-btn', '.promo__tabs-content', '.promo__tabs-btns', 'tabs-btn-active'); // функция для работы табов
+
+  Object(_modules_gallary__WEBPACK_IMPORTED_MODULE_5__["default"])('.promo', '.preview'); // функция для работы мини-галереи на одной из вкадок табов
+
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_6__["default"])('.promo__slider-plane', '.promo__slider-next', '.promo__slider-prev', '.promo__slider-item'); // функция для работы слайдера
 });
 
 /***/ }),

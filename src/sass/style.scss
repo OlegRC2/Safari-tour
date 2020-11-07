@@ -1,6 +1,5 @@
 @import 'libs/bootstrap-reboot.min';
 @import 'libs/fonts';
-@import 'libs/animate';
 @import 'base/animation';
 
 .container {
@@ -14,6 +13,8 @@
 @import 'blocks/map';
 @import 'blocks/footer';
 @import 'blocks/modal';
+
+@import 'base/media';
 
 .active {
     display: block;
