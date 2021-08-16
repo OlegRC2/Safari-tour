@@ -1,6 +1,7 @@
 # Safari-tour
 
-Сайт выполнен по макету. Ссылка на макет https://cloud.mail.ru/public/wv3u/4cUYEZDLD
+Сайт выполнен по макету. Ссылка на макет https://cloud.mail.ru/public/wv3u/4cUYEZDLD    
+Ссылка на сайт https://olegrc2.ru/sites/safari-tour/index.html
 
 Основные элементы:
 
